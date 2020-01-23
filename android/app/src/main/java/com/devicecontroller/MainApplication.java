@@ -1,4 +1,4 @@
-package com.devices;
+package com.devicecontroller;
 
 import android.app.Application;
 import android.content.Context;
