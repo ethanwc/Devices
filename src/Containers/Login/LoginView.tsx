@@ -37,7 +37,7 @@ const Login = (props: any) => {
           <Button
             title="Sign In"
             color="#193335"
-            onPress={() => Alert.alert('hi')}
+            onPress={() => props.navigation.navigate('Device')}
           />
         </View>
         <View
