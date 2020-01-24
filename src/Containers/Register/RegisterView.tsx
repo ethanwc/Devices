@@ -1,9 +1,9 @@
 import React from 'react';
 import {TextInput, View, Button, Text, Alert, Image} from 'react-native';
-import {Buttons, Images, Input} from '../../Styles';
+import {Images, Input} from '../../Styles';
 
 /**
- * UI for login page
+ * UI for register page
  */
 const Login = (props: any) => {
   return (
@@ -19,7 +19,19 @@ const Login = (props: any) => {
           source={require('../../img/wave1.png')}
         />
       </View>
-      <View style={{flex: 5}}>
+      <View style={{flex: 6}}>
+        <TextInput
+          style={{...Input.TextInputMain}}
+          placeholder="First name"
+          value={props.fname}
+          onChangeText={text => props.setFname(text)}
+        />
+        <TextInput
+          style={{...Input.TextInputMain}}
+          placeholder="Last name"
+          value={props.lname}
+          onChangeText={text => props.setLname(text)}
+        />
         <TextInput
           style={{...Input.TextInputMain}}
           placeholder="Username"
@@ -29,15 +41,22 @@ const Login = (props: any) => {
         <TextInput
           style={{...Input.TextInputMain}}
           placeholder="Password"
-          value={props.password}
+          value={props.password1}
           secureTextEntry={true}
-          onChangeText={text => props.setPassword(text)}
+          onChangeText={text => props.setPassword1(text)}
+        />
+        <TextInput
+          style={{...Input.TextInputMain}}
+          placeholder="Confirm Password"
+          value={props.password2}
+          secureTextEntry={true}
+          onChangeText={text => props.setPassword2(text)}
         />
         <View style={{marginLeft: 10, marginRight: 10, paddingTop: 10}}>
           <Button
-            title="Sign In"
+            title="Sign Up"
             color="#193335"
-            onPress={() => Alert.alert('hi')}
+            onPress={() => Alert.alert('reg pres')}
           />
         </View>
         <View
@@ -49,7 +68,13 @@ const Login = (props: any) => {
             marginTop: 10,
           }}>
           <View>
-            <Text onPress={() => props.navigation.navigate('Register')}>
+            <Text
+              onPress={() =>
+                props.navigation.navigate('Register', {
+                  setUsername: () => props.setUsername(),
+                  setPassword: () => props.setPassword(),
+                })
+              }>
               New User?
             </Text>
           </View>

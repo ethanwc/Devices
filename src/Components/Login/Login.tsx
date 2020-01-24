@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import Axios from 'axios';
-import LoginView from '../../Containers/Login/LoginView'
+import LoginView from '../../Containers/Login/LoginView';
 /**
  * Login controller for application.
  */
 const Login = (props: any) => {
   const [username, setUsername] = useState('ethanwc');
   const [password, setPassword] = useState('password');
-  const [remember, setRemember] = useState(false);
 
   /**
    * On start, check...
@@ -16,7 +15,13 @@ const Login = (props: any) => {
   useEffect(() => {}, []);
 
   return (
-    <LoginView username={username} setUsername={setUsername}/>
+    <LoginView
+      username={username}
+      setUsername={setUsername}
+      password={password}
+      setPassword={setPassword}
+      navigation={props.navigation}
+    />
   );
 };
 
