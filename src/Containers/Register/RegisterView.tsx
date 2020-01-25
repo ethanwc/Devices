@@ -59,26 +59,6 @@ const Login = (props: any) => {
             onPress={() => Alert.alert('reg pres')}
           />
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginLeft: 10,
-            marginTop: 10,
-          }}>
-          <View>
-            <Text
-              onPress={() =>
-                props.navigation.navigate('Register', {
-                  setUsername: () => props.setUsername(),
-                  setPassword: () => props.setPassword(),
-                })
-              }>
-              New User?
-            </Text>
-          </View>
-        </View>
       </View>
     </View>
   );
