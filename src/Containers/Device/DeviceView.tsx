@@ -1,31 +1,33 @@
 import React from 'react';
-import {TextInput, View, Button, Text, Alert, Image} from 'react-native';
-import {Buttons, Images, Input} from '../../Styles';
-import {TouchableNativeFeedback} from 'react-native-gesture-handler';
+import {View, Text, Image, TouchableNativeFeedback} from 'react-native';
+import {Buttons, Images, Input, Textograph, Card} from '../../Styles';
 
 /**
  * UI for a single device
  */
-const Device = (props: any) => {
-  const handlePress = () => Alert.alert('wtf');
+const DeviceView = (props: any) => {
+  const handlePress = () => props.navigation.navigate('DetailedDevice');
 
   return (
-    <TouchableNativeFeedback
-      style={{
-        backgroundColor: 'orange',
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-      }}
-      onPress={() => handlePress()}>
-      <Text>Device Name</Text>
-      <Image
-        style={{...Images.DeviceStyle}}
-        source={require('../../img/wave1.png')}
-      />
-
-      <Text>Device State</Text>
+    <TouchableNativeFeedback onPress={() => handlePress()}>
+      <View
+        style={{
+          justifyContent: 'space-around',
+          flexDirection: 'row',
+        }}>
+        <View style={{...Card.DeviceInfo}}>
+          <Text style={{...Textograph.DeviceText}}>Device Name</Text>
+          <Text>Device State</Text>
+        </View>
+        <View>
+          <Image
+            style={{...Images.DeviceStyle}}
+            source={require('../../img/rp3.png')}
+          />
+        </View>
+      </View>
     </TouchableNativeFeedback>
   );
 };
 
-export default Device;
+export default DeviceView;

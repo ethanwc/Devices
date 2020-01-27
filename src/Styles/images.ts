@@ -5,5 +5,5 @@ export const LogoStyle = {
 
 export const DeviceStyle = {
   height: 150,
-  width: 150,
+  width: 250,
 };

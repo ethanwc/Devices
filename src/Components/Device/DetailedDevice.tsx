@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
+import DetailedDeviceView from '../../Containers/Device/DetailedDeviceView';
 import Axios from 'axios';
-import DeviceView from '../../Containers/Device/DeviceView';
 /**
  * Device controller for application.
  */
-const Device = (props: any) => {
+const DetailedDevice = (props: any) => {
   //   const [password, setPassword] = useState('password');
 
   /**
@@ -13,7 +13,7 @@ const Device = (props: any) => {
    */
   useEffect(() => {}, []);
 
-  return <DeviceView navigation={props.navigation} />;
+  return <DetailedDeviceView />;
 };
 
-export default Device;
+export default DetailedDevice;

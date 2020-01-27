@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
+import React, {useState} from 'react';
 import Axios from 'axios';
 import RegisterView from '../../Containers/Register/RegisterView';
+import endpoints from '../../utils/endpoints.json';
+import {Alert} from 'react-native';
+
 /**
  * Register controller for application.
  */
@@ -12,10 +14,28 @@ const Register = (props: any) => {
   const [password1, setPassword1] = useState('password');
   const [password2, setPassword2] = useState('password');
 
-  /**
-   * On start, check...
-   */
-  useEffect(() => {}, []);
+  //endpoint for login
+  const endpoint_register = `${endpoints.base}/${endpoints.auth}/${endpoints.register}`;
+
+  const handleRegister = async () => {
+    const info = {
+      fname: fname,
+      lname: lname,
+      username: username,
+      password1: password1,
+      password2: password2,
+    };
+
+    Axios.post(endpoint_register, info)
+      .then(res => {
+        Alert.alert('Register worked' + res.status);
+      })
+      .catch(error => {
+        if (error.response.status == 409)
+          Alert.alert('Username already exists');
+        else Alert.alert('Error Occured');
+      });
+  };
 
   return (
     <RegisterView
@@ -29,6 +49,7 @@ const Register = (props: any) => {
       setPassword1={setPassword1}
       password2={password2}
       setPassword2={setPassword2}
+      handleRegister={handleRegister}
     />
   );
 };

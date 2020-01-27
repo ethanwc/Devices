@@ -56,7 +56,7 @@ const Login = (props: any) => {
           <Button
             title="Sign Up"
             color="#193335"
-            onPress={() => Alert.alert('reg pres')}
+            onPress={() => props.handleRegister()}
           />
         </View>
       </View>
