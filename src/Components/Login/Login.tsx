@@ -24,7 +24,8 @@ const Login = (props: any) => {
         props.navigation.navigate('Devices');
       })
       .catch(error => {
-        if (error.response.status == 404) Alert.alert('User not found');
+        if (error.response.status == 401) Alert.alert('Invalid login');
+        else if (error.response.status == 404) Alert.alert('User not found');
         else Alert.alert('Error Occured');
       });
   };

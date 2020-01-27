@@ -8,7 +8,7 @@ import {
   Image,
   FlatList,
 } from 'react-native';
-import {Buttons, Images, Input} from '../../Styles';
+import {Buttons, Images, Input, Card} from '../../Styles';
 import {TouchableOpacity, ScrollView} from 'react-native-gesture-handler';
 import Device from '../../Components/Device/Device';
 
@@ -17,8 +17,9 @@ import Device from '../../Components/Device/Device';
  */
 const DevicesView = (props: any) => {
   const data = [{id: '1'}, {id: '2'}, {id: '3'}, {id: '4'}, {id: '5'}];
+
   return (
-    <View style={{flex: 1, backgroundColor: '##A4C6CC'}}>
+    <View style={{...Card.DevicesView}}>
       <FlatList
         data={data}
         renderItem={() => <Device navigation={props.navigation} />}
