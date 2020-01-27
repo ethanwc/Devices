@@ -28,7 +28,7 @@ const Register = (props: any) => {
 
     Axios.post(endpoint_register, info)
       .then(res => {
-        Alert.alert('Register worked' + res.status);
+        props.navigation.goBack();
       })
       .catch(error => {
         if (error.response.status == 409)

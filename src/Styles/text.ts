@@ -1,7 +1,7 @@
 export const DeviceText = {
   color: '#193335',
   fontWeight: 'bold',
-  fontSize: 30,
+  fontSize: 20,
 };
 
 export const DetailedDeviceText = {

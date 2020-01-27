@@ -1,5 +1,5 @@
 {
-  "base": "https://apie-devices.herokuapp.com/api/",
+  "base": "https://apie-devices.herokuapp.com/api",
   "login": "login",
   "register": "register",
   "auth": "auth",

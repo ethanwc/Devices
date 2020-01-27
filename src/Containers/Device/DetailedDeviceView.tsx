@@ -1,14 +1,6 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableNativeFeedback,
-  Alert,
-  Button,
-} from 'react-native';
+import {View, Text, Image, Button, Alert} from 'react-native';
 import {Buttons, Images, Input, Textograph, Card} from '../../Styles';
-import {ColorPicker} from 'react-native-color-picker';
 import ColorModal from '../Modal/ColorModal';
 import Data from '../Data/DataView';
 
@@ -34,8 +26,13 @@ const DetailedDeviceView = (props: any) => {
     <View
       style={{...Card.DetailedDeviceInfo, backgroundColor: backgroundColor}}>
       <View style={{flex: 1}}>
-        <Text style={{...Textograph.DetailedDeviceText}}>Device Name</Text>
-        <Text>Device State</Text>
+        <Text style={{...Textograph.DetailedDeviceText}}>
+          {props.devicename}
+        </Text>
+        <Text>{props.devicetype}</Text>
+        <Text>{props.deviceaddress}</Text>
+        <Text>{props.color}</Text>
+
         <Image
           style={{...Images.DetailedDeviceStyle}}
           source={require('../../img/rp3.png')}

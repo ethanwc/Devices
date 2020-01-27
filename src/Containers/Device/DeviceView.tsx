@@ -6,7 +6,14 @@ import {Buttons, Images, Input, Textograph, Card} from '../../Styles';
  * UI for a single device
  */
 const DeviceView = (props: any) => {
-  const handlePress = () => props.navigation.navigate('DetailedDevice');
+  const handlePress = () =>
+    props.navigation.navigate('DetailedDevice', {
+      devicename: props.devicename,
+      devicetype: props.devicetype,
+      devicestate: props.devicestate,
+      deviceaddress: props.deviceaddress,
+      deviceid: props.deviceid,
+    });
 
   return (
     <TouchableNativeFeedback onPress={() => handlePress()}>
@@ -15,11 +22,11 @@ const DeviceView = (props: any) => {
           justifyContent: 'space-around',
           flexDirection: 'row',
         }}>
-        <View style={{...Card.DeviceInfo}}>
-          <Text style={{...Textograph.DeviceText}}>Device Name</Text>
-          <Text>Device State</Text>
+        <View style={{...Card.DeviceInfo, flex: 3}}>
+          <Text style={{...Textograph.DeviceText}}>{props.devicename}</Text>
+          <Text>{props.devicetype}</Text>
         </View>
-        <View>
+        <View style={{flex: 3, margin: 20}}>
           <Image
             style={{...Images.DeviceStyle}}
             source={require('../../img/rp3.png')}

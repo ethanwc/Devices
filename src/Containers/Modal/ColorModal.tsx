@@ -3,6 +3,7 @@ import {TextInput, View, Button, Text, Alert, Image} from 'react-native';
 import {Buttons, Images, Input} from '../../Styles';
 import Modal from 'react-native-modal';
 import {ColorPicker} from 'react-native-color-picker';
+import {toHsv, fromHsv} from 'react-native-color-picker';
 
 /**
  * Color Modal for selecting device led color
@@ -19,8 +20,8 @@ const ColorModal = (props: any) => {
           <ColorPicker
             color={props.color}
             defaultColor={props.color}
-            onColorChange={color => props.setColor(color)}
-            onColorSelected={color => props.updateState(color)}
+            onColorChange={color => props.setColor(fromHsv(color))}
+            onColorSelected={color => props.updateState(fromHsv(color))}
             style={{flex: 1}}
           />
         </View>

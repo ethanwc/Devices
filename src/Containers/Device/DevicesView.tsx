@@ -16,13 +16,20 @@ import Device from '../../Components/Device/Device';
  * UI for a single device
  */
 const DevicesView = (props: any) => {
-  const data = [{id: '1'}, {id: '2'}, {id: '3'}, {id: '4'}, {id: '5'}];
-
   return (
     <View style={{...Card.DevicesView}}>
       <FlatList
-        data={data}
-        renderItem={() => <Device navigation={props.navigation} />}
+        data={props.deviceData}
+        renderItem={({item}: any) => (
+          <Device
+            navigation={props.navigation}
+            devicename={item.devicename}
+            devicetype={item.devicetype}
+            devicestate={item.devicestate}
+            deviceaddress={item.deviceaddress}
+            deviceid={item.id}
+          />
+        )}
         keyExtractor={(item: {id: any}) => item.id}
       />
     </View>

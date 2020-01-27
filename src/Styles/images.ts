@@ -4,8 +4,9 @@ export const LogoStyle = {
 };
 
 export const DeviceStyle = {
-  height: 150,
-  width: 250,
+  height: 75,
+  width: 150,
+  padding: 20,
 };
 
 export const DetailedDeviceStyle = {
